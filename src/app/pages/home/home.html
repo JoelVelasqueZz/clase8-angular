@@ -2,14 +2,13 @@
 
 <div>
   <input
-    [(ngModel)]="busqueda"           
+    [(ngModel)]="busqueda"
     placeholder="Escribe un pokémon"
     (keyup.enter)="buscar()">
   <button (click)="buscar()">Buscar</button>
 </div>
 
 <p *ngIf="cargando">Buscando...</p>
-
 <p *ngIf="error" style="color: red;">{{ error }}</p>
 
 <app-pokemon-card
@@ -26,5 +25,7 @@
       [alt]="f.name"
       style="width: 60px;">
     <span>{{ f.name }}</span>
-  </div> 
+    <button (click)="verDetalle(f.name)">Ver detalle →</button>
+    <button (click)="eliminarFavorito(f.id)">✕</button>
+  </div>
 </div>
